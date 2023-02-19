@@ -59,17 +59,17 @@
 				width: 1200px;
 				margin: 0 auto;
 			}
-			.myPost{
+			.myPost {
 				width: 500px;
 				margin: 20px auto;
 				padding: 15px 15px;
 				border-radius: 10px;
 				box-shadow: 0px 0px 10px 0px gray;
 			}
-			.myPost>.form-floating:nth-child(2){
+			.myPost > .form-floating {
 				margin-top: 15px;
 			}
-			.myPost_btn{
+			.myPost_btn {
 				display: flex;
 				justify-content: right;
 				margin-top: 20px;
@@ -81,14 +81,18 @@
 			<h1>오늘은 무슨 영화를 봐볼까?</h1>
 			<button>영화 저장하기</button>
 		</div>
+		
 		<div class="myPost">
-			<div class="form-floating">
-				<textarea
-					class="form-control"
-					placeholder="Leave a comment here"
-					id="floatingTextarea"
-				></textarea>
-				<label for="floatingTextarea">Comments</label>
+			<div class="input-group mb-3">
+				<label class="input-group-text" for="inputGroupSelect01"
+					>Options</label
+				>
+				<select class="form-select" id="inputGroupSelect01">
+					<option selected>Choose...</option>
+					<option value="1">★</option>
+					<option value="2">★★★</option>
+					<option value="3">★★★★★</option>
+				</select>
 			</div>
 			<div class="form-floating">
 				<textarea
@@ -98,7 +102,15 @@
 				></textarea>
 				<label for="floatingTextarea">Comments</label>
 			</div>
-			
+			<div class="form-floating">
+				<textarea
+					class="form-control"
+					placeholder="Leave a comment here"
+					id="floatingTextarea"
+				></textarea>
+				<label for="floatingTextarea">Comments</label>
+			</div>
+
 			<div class="myPost_btn">
 				<button type="button" class="btn btn-dark">기록하기</button>
 				<button type="button" class="btn btn-outline-dark">닫기</button>
