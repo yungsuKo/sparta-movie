@@ -76,19 +76,23 @@
 			}
 		</style>
 		<script>
-			function hey(){
-				console.log('안녕하세요');
-			}
-			hey()
-			// 자바스크립트 - html 움직이게 만드려고 사용함.
+			$(document).ready(function () {
+				fetch("http://spartacodingclub.shop/sparta_api/weather/seoul")
+					.then((res) => res.json())
+					.then((data) => {
+						console.log(data.temp);
+						$('#temp').text(data.temp)
+					});
+			});
 		</script>
 	</head>
 	<body>
 		<div class="myTitle">
 			<h1>오늘은 무슨 영화를 봐볼까?</h1>
+			<div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
 			<button onclick="hey()">영화 저장하기</button>
 		</div>
-		
+
 		<div class="myPost">
 			<div class="input-group mb-3">
 				<label class="input-group-text" for="inputGroupSelect01"
