@@ -81,7 +81,36 @@
 					.then((res) => res.json())
 					.then((data) => {
 						console.log(data.temp);
-						$('#temp').text(data.temp)
+						$("#temp").text(data.temp);
+					});
+				fetch("http://spartacodingclub.shop/web/api/movie")
+					.then((res) => res.json())
+					.then((data) => {
+						let rows = data.movies;
+						$('#myCards').empty();
+						rows.forEach((item) => {
+							console.log(item);
+							let {title, desc, comment, star, image} = item;
+							let star_img = '⭐'.repeat(star)
+							let temp_html = `
+								<div class="col">
+									<div class="card h-100">
+										<img
+											src="${image}"
+											class="card-img-top"
+											alt="..."
+										/>
+										<div class="card-body">
+											<h5 class="card-title">${title}</h5>
+											<p class="card-text">${desc}</p>
+											<p>${star_img}</p>
+											<p class="card-comment">${comment}</p>
+										</div>
+									</div>
+								</div>
+							`;
+							$('#myCards').append(temp_html);
+						});
 					});
 			});
 		</script>
@@ -128,7 +157,7 @@
 			</div>
 		</div>
 		<div class="myCards">
-			<div class="row row-cols-1 row-cols-md-4 g-4">
+			<div class="row row-cols-1 row-cols-md-4 g-4" id="myCards">
 				<div class="col">
 					<div class="card h-100">
 						<img
