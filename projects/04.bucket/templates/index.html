@@ -94,25 +94,24 @@
 				show_bucket();
 			});
 			function show_bucket() {
+				$('#bucket-list').empty();
 				fetch("/bucket")
 					.then((res) => res.json())
 					.then((data) => {
 						console.log(data.result);
 						let rows = data.result;
 						rows.forEach((item) => {
-                            let temp_html = `
-                                <li>
-                                    <h2>✅ ${item.bucket_name}</h2>
-                                    <button
-                                        onclick="done_bucket(5)"
-                                        type="button"
-                                        class="btn btn-outline-primary"
-                                    >
-                                        완료!
-                                    </button>
-                                </li>
-                            `;
-                            $("#bucket_list").append(temp_html);
+                            let temp_html = `<li>
+												<h2>✅ ${item.bucket_name}</h2>
+												<button
+													onclick="done_bucket(5)"
+													type="button"
+													class="btn btn-outline-primary"
+												>
+													완료!
+												</button>
+											</li>`;
+                            $("#bucket-list").append(temp_html);
 						});
 					});
 			}
