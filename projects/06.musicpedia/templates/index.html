@@ -109,7 +109,7 @@
 
 			function listing() {
                 $('#cards-box').empty()
-				fetch("/movie")
+				fetch("/music")
 					.then((res) => res.json())
 					.then((data) => {
 						data.result.forEach((item)=>{
@@ -123,10 +123,10 @@
                                         <div class="card-body">
                                             <h5 class="card-title">${item.title}</h5>
                                             <p class="card-text">
-                                                ${item.desc}
+                                                ${item.desc.substr(0, 50)+"..."}
                                             </p>
                                             <p>${'⭐'.repeat(item.star)}</p>
-                                            <p class="mycomment">${item.comment}</p>
+                                            <p class="mycomment">${"😀 : "+item.comment}</p>
                                         </div>
                                     </div>
                                 </div>
